@@ -11,6 +11,7 @@ class PhraseNode extends Node
 
     /**
      * PhraseNode constructor.
+     *
      * @param string $value
      */
     public function __construct($value)

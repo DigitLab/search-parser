@@ -2,8 +2,6 @@
 
 namespace DigitLab\SearchParser\Parsers\Nodes;
 
-use Traversable;
-
 class ExpressionNode extends Node implements \ArrayAccess, \Countable, \IteratorAggregate
 {
     /**
@@ -76,7 +74,8 @@ class ExpressionNode extends Node implements \ArrayAccess, \Countable, \Iterator
     /**
      * Determine if an item exists at an offset.
      *
-     * @param  mixed  $key
+     * @param mixed $key
+     *
      * @return bool
      */
     public function offsetExists($key)
@@ -87,7 +86,8 @@ class ExpressionNode extends Node implements \ArrayAccess, \Countable, \Iterator
     /**
      * Get an item at a given offset.
      *
-     * @param  mixed  $key
+     * @param mixed $key
+     *
      * @return mixed
      */
     public function offsetGet($key)
@@ -98,8 +98,9 @@ class ExpressionNode extends Node implements \ArrayAccess, \Countable, \Iterator
     /**
      * Set the item at a given offset.
      *
-     * @param  mixed  $key
-     * @param  mixed  $value
+     * @param mixed $key
+     * @param mixed $value
+     *
      * @return void
      */
     public function offsetSet($key, $value)
@@ -114,7 +115,8 @@ class ExpressionNode extends Node implements \ArrayAccess, \Countable, \Iterator
     /**
      * Unset the item at a given offset.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return void
      */
     public function offsetUnset($key)

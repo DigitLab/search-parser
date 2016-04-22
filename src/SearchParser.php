@@ -41,8 +41,8 @@ class SearchParser
     /**
      * Create a new SearchParser.
      *
-     * @param \DigitLab\SearchParser\Lexers\Lexer $lexer
-     * @param \DigitLab\SearchParser\Parsers\Parser $parser
+     * @param \DigitLab\SearchParser\Lexers\Lexer     $lexer
+     * @param \DigitLab\SearchParser\Parsers\Parser   $parser
      * @param \DigitLab\SearchParser\Grammers\Grammer $grammer
      */
     public function __construct(Lexer $lexer, Parser $parser, Grammer $grammer)
@@ -56,6 +56,7 @@ class SearchParser
      * Parse the query.
      *
      * @param string $query
+     *
      * @return array
      */
     public function parse($query)
@@ -83,6 +84,7 @@ class SearchParser
      * Process the filters.
      *
      * @param array $filters
+     *
      * @return array
      */
     protected function processFilters($filters)
@@ -106,6 +108,7 @@ class SearchParser
      * Determine if a get mutator exists for a filter.
      *
      * @param string $key
+     *
      * @return bool
      */
     protected function hasFilterMutator($key)
@@ -117,7 +120,8 @@ class SearchParser
      * Get the value of a filter using its mutator.
      *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
+     *
      * @return array
      */
     protected function mutateFilter($key, $value)

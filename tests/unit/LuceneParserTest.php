@@ -31,7 +31,7 @@ class LuceneParserTest extends PHPUnit_Framework_TestCase
             new Token('(', TokenType::SYMBOL),
             new Token('-', TokenType::NEGATE),
             new Token('something', TokenType::IDENTIFIER),
-            new Token(')', TokenType::SYMBOL)
+            new Token(')', TokenType::SYMBOL),
         ];
 
         list($expression, $filters) = $this->parser->parse($tokens);

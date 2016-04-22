@@ -39,7 +39,7 @@ class TokenStream implements \Countable
     public function currentToken()
     {
         if ($this->isEmpty()) {
-            return null;
+            return;
         }
 
         return $this->tokens[0];
@@ -69,12 +69,13 @@ class TokenStream implements \Countable
      * Get the token ahead of the current token in the stream.
      *
      * @param int $position
+     *
      * @return \DigitLab\SearchParser\Lexers\Tokens\Token|null
      */
     public function lookAhead($position = 1)
     {
         if ($position >= count($this->tokens)) {
-            return null;
+            return;
         }
 
         return $this->tokens[$position];
