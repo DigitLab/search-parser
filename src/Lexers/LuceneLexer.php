@@ -17,6 +17,6 @@ class LuceneLexer extends Lexer
         TokenType::BOOLEAN_OPERATOR     => '/AND|OR/',
         TokenType::PHRASE               => '/".*"|\'.*\'/',
         TokenType::NEGATE               => '/-/',
-        TokenType::IDENTIFIER           => '/[!|>|>=|<|<=]?[a-zA-Z0-9]+/'
+        TokenType::IDENTIFIER           => '/[!|>|>=|<|<=]?[a-zA-Z0-9]+/',
     ];
 }

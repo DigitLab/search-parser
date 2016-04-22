@@ -17,6 +17,7 @@ abstract class Lexer
      * Lex the input string into tokens.
      *
      * @param string $input
+     *
      * @return array
      */
     public function tokenize($input)
@@ -45,6 +46,7 @@ abstract class Lexer
      * Find the first matching token in a string.
      *
      * @param $input
+     *
      * @return \DigitLab\SearchParser\Lexers\Tokens\Token|null
      */
     protected function findMatchingToken($input)
@@ -60,7 +62,7 @@ abstract class Lexer
         }
 
         if (empty($matchingTokens)) {
-            return null;
+            return;
         }
 
         return $this->getBestToken($matchingTokens);
@@ -72,6 +74,7 @@ abstract class Lexer
      * @param string $input
      * @param string $tokenName
      * @param string $tokenDefinition
+     *
      * @return \DigitLab\SearchParser\Lexers\Tokens\Token|null
      */
     protected function getTokenFromDefinition($input, $tokenName, $tokenDefinition)
@@ -79,14 +82,14 @@ abstract class Lexer
         $result = preg_match($tokenDefinition, $input, $matches, PREG_OFFSET_CAPTURE);
 
         if ($result === 0) {
-            return null;
+            return;
         }
 
         $match = $matches[0];
 
         // Check the offset
         if ($match[1] !== 0) {
-            return null;
+            return;
         }
 
         return new Token(trim($match[0]), $tokenName);
@@ -96,7 +99,7 @@ abstract class Lexer
     {
         $maxItem = null;
         $maxValue = null;
-        
+
         foreach ($tokens as $token) {
             $itemValue = strlen($token->getValue());
 
@@ -105,6 +108,7 @@ abstract class Lexer
                 $maxValue = $itemValue;
             }
         }
+
         return $maxItem;
     }
 }

@@ -46,7 +46,7 @@ class LuceneLexerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(TokenType::SYMBOL, $tokens[1]->getType());
         $this->assertEquals(')', $tokens[1]->getValue());
     }
-    
+
     public function testItCanParsePhrases()
     {
         $tokens = $this->lexer->tokenize('"some thing"');

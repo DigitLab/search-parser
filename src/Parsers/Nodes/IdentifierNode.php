@@ -11,8 +11,9 @@ class IdentifierNode extends PhraseNode
 
     /**
      * PhraseNode constructor.
+     *
      * @param string $value
-     * @param bool $negate
+     * @param bool   $negate
      */
     public function __construct($value, $negate = false)
     {

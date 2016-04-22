@@ -14,6 +14,7 @@ class LuceneParser implements Parser
 {
     /**
      * @param array $tokens
+     *
      * @return \DigitLab\SearchParser\Parsers\Nodes\ExpressionNode
      */
     public function parse(array $tokens)
@@ -34,6 +35,7 @@ class LuceneParser implements Parser
      * Filter out filter tokens.
      *
      * @param array $tokens
+     *
      * @return array
      */
     protected function filterTokens(array $tokens)
@@ -66,7 +68,7 @@ class LuceneParser implements Parser
             case TokenType::PHRASE:
                 $this->parsePhraseToken($tokenStream, $expression);
                 break;
-            
+
             default:
                 $this->parseIdentifierToken($tokenStream, $expression);
         }
@@ -77,7 +79,7 @@ class LuceneParser implements Parser
     /**
      * Parse the boolean operator.
      *
-     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream $tokenStream
+     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream    $tokenStream
      * @param \DigitLab\SearchParser\Parsers\Nodes\ExpressionNode $expression
      */
     protected function parseBooleanOperatorToken(TokenStream $tokenStream, ExpressionNode $expression)
@@ -91,7 +93,7 @@ class LuceneParser implements Parser
      * Parse the filter token and add it to the filters.
      *
      * @param \DigitLab\SearchParser\Lexers\Tokens\Token $token
-     * @param array $filters
+     * @param array                                      $filters
      */
     protected function parseFilterToken(Token $token, array &$filters)
     {
@@ -103,7 +105,7 @@ class LuceneParser implements Parser
     /**
      * Parse the phrase token.
      *
-     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream $tokenStream
+     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream    $tokenStream
      * @param \DigitLab\SearchParser\Parsers\Nodes\ExpressionNode $expression
      */
     protected function parsePhraseToken(TokenStream $tokenStream, ExpressionNode $expression)
@@ -120,7 +122,7 @@ class LuceneParser implements Parser
     /**
      * Parse the identifier token.
      *
-     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream $tokenStream
+     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream    $tokenStream
      * @param \DigitLab\SearchParser\Parsers\Nodes\ExpressionNode $expression
      */
     protected function parseIdentifierToken(TokenStream $tokenStream, ExpressionNode $expression)
@@ -139,8 +141,9 @@ class LuceneParser implements Parser
     /**
      * Parse the symbol token.
      *
-     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream $tokenStream
+     * @param \DigitLab\SearchParser\Lexers\Tokens\TokenStream    $tokenStream
      * @param \DigitLab\SearchParser\Parsers\Nodes\ExpressionNode $expression
+     *
      * @return \DigitLab\SearchParser\Parsers\Nodes\ExpressionNode
      */
     protected function parseSymbolToken(TokenStream $tokenStream, ExpressionNode $expression)
@@ -150,7 +153,7 @@ class LuceneParser implements Parser
         if ($token->getValue() == '(') {
             return $expression->createChildExpression();
         }
-        
+
         return $expression->getParent();
     }
 }

@@ -13,6 +13,7 @@ class PostgresGrammer implements Grammer
      * Generate a search string from the expression.
      *
      * @param \DigitLab\SearchParser\Parsers\Nodes\ExpressionNode $expression
+     *
      * @return string
      */
     public function generate(ExpressionNode $expression)
@@ -24,7 +25,7 @@ class PostgresGrammer implements Grammer
     {
         $query = '';
         $needsBoolean = false;
-        
+
         foreach ($expression as $node) {
             if ($node instanceof BooleanOperatorNode) {
                 $operator = $node->isAnd() ? '&' : '|';
@@ -40,7 +41,7 @@ class PostgresGrammer implements Grammer
 
             switch (get_class($node)) {
                 case ExpressionNode::class:
-                    $query .= '(' . $this->process($node) . ')';
+                    $query .= '('.$this->process($node).')';
                     break;
 
                 case IdentifierNode::class:
